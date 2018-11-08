@@ -17,28 +17,22 @@ int main(int argc, char *argv[])
     TBCombine tbcombine2;
     Blender  blender;
     blender.SetFactor(0.795);
-reader.Execute();
+
     shrinker1.SetInput(reader.GetOutput());
-shrinker1.Execute();
     lrcombine1.SetInput(shrinker1.GetOutput());
     lrcombine1.SetInput2(shrinker1.GetOutput());
-lrcombine1.Execute();
     tbcombine1.SetInput(lrcombine1.GetOutput());
     tbcombine1.SetInput2(lrcombine1.GetOutput());
-tbcombine1.Execute();
     shrinker2.SetInput(tbcombine1.GetOutput());
-shrinker2.Execute();
     lrcombine2.SetInput(shrinker2.GetOutput());
     lrcombine2.SetInput2(shrinker1.GetOutput());
-lrcombine2.Execute();
     tbcombine2.SetInput(lrcombine2.GetOutput());
     tbcombine2.SetInput2(lrcombine1.GetOutput());
-tbcombine2.Execute();
     blender.SetInput(tbcombine2.GetOutput());
     blender.SetInput2(reader.GetOutput());
-blender.Execute();
+
     writer.SetInput(blender.GetOutput());
-/*
+
     reader.Execute();
     shrinker1.Execute();
     lrcombine1.Execute();
@@ -47,6 +41,6 @@ blender.Execute();
     lrcombine2.Execute();
     tbcombine2.Execute();
     blender.Execute();
-*/
+
     writer.Write(argv[2]);
 }

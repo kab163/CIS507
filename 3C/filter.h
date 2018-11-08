@@ -11,7 +11,7 @@ class Filter
     void SetInput(Image img);
     Image GetOutput();
     Image img;
-    Image img2;
+    //Image img2;
 
 };
 
