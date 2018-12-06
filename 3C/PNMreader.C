@@ -11,9 +11,11 @@ PNMreader::PNMreader(char* _filename) {
   this->filename = _filename;
 }
 
+/*
 Image PNMreader::GetOutput() {
   return this->img; 
 }
+*/
 
 void PNMreader::Execute() {
   FILE *f_in;

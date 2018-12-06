@@ -3,9 +3,9 @@
 #include <assert.h>
 #include <stdlib.h>
 
-void Filter::SetInput(Image _img) {this->img = _img; }
+//void Filter::SetInput(Image _img) {this->img = _img; }
 
-void Filter2::SetInput2(Image _img) {this->img2 = _img; }
+//void Filter::SetInput2(Image _img2) {this->img2 = _img2; }
 
 Image Filter::GetOutput() {return this->output; }
 

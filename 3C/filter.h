@@ -1,26 +1,20 @@
-#pragma once
-#ifndef IMAGE_H
-#define IMAGE_H
+#ifndef FILTER_H
+#define FILTER_H
 
 #include <image.h>
+#include <sink.h>
+#include <source.h>
 
-class Filter
+class Filter : public Sink, public Source
 {
-public :
-    void SetInput(Image img);
+  public : 
     Image GetOutput();
     virtual void Execute() = 0;
-protected :
+    virtual void Update() = 0;
+    void SetInput(Image _img) { this->img = _img; };
+    void SetInput2(Image _img2) { this->img2 = _img2; }; 
+  protected :
     Image output;
-    Image img;
-};
-
-class Filter2 : public Filter
-{
-public :
-    void SetInput2(Image img);
-protected :
-    Image img2;
 };
 
 class Shrinker : public Filter
@@ -29,19 +23,19 @@ public:
   void Execute() override;
 };
 
-class LRCombine : public Filter2
+class LRCombine : public Filter
 {
 public:
   void Execute() override;
 };
 
-class TBCombine : public Filter2
+class TBCombine : public Filter
 {
 public:
   void Execute() override;
 };
 
-class Blender : public Filter2
+class Blender : public Filter
 {
 public:
   void Execute() override;

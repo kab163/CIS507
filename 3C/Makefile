@@ -5,7 +5,7 @@ prog: $(OBJ)
 	g++ -std=c++11 $(OBJ) -o proj3C
 
 .C.o: $<
-	g++ -I. -c $<
+	g++ -std=c++11 -I. -c $<
 
 clean:
 	rm *.o proj3C
